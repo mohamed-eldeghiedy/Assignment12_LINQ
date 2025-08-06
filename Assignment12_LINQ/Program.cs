@@ -70,20 +70,38 @@ namespace Assignment12_LINQ
 
             #region p1: Get first Product out of Stock 
 
-            List<Product> products = ListGenerators.ProductList;
-            var FristOutOfStock = products.FirstOrDefault(p => p.UnitsInStock == 0);
-            if (FristOutOfStock != null)
-            {
-                Console.WriteLine($"First out of stock product: {FristOutOfStock.ProductName}");
-            }
-            else
-            {
-                Console.WriteLine("No products are out of stock.");
-            }
+            //List<Product> products = ListGenerators.ProductList;
+            //var FristOutOfStock = products.FirstOrDefault(p => p.UnitsInStock == 0);
+            //if (FristOutOfStock != null)
+            //{
+            //    Console.WriteLine($"First out of stock product: {FristOutOfStock.ProductName}");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("No products are out of stock.");
+            //}
 
 
             #endregion
 
+
+
+            #region p2:2. Return the first product whose Price > 1000, unless there is no match, in which case null is returned.
+
+
+            var expensiveProduct = ListGenerators.ProductList
+                .FirstOrDefault(p => p.UnitPrice > 1000);
+
+            if (expensiveProduct != null)
+            {
+                Console.WriteLine($"Product over $1000: {expensiveProduct.ProductName}, Price: {expensiveProduct.UnitPrice:C}");
+            }
+            else
+            {
+                Console.WriteLine("No product found with price over $1000.");
+            }
+
+            #endregion
         }
     }
 }
