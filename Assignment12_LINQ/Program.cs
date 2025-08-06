@@ -89,19 +89,41 @@ namespace Assignment12_LINQ
             #region p2:2. Return the first product whose Price > 1000, unless there is no match, in which case null is returned.
 
 
-            var expensiveProduct = ListGenerators.ProductList
-                .FirstOrDefault(p => p.UnitPrice > 1000);
+            //var expensiveProduct = ListGenerators.ProductList
+            //    .FirstOrDefault(p => p.UnitPrice > 1000);
 
-            if (expensiveProduct != null)
+            //if (expensiveProduct != null)
+            //{
+            //    Console.WriteLine($"Product over $1000: {expensiveProduct.ProductName}, Price: {expensiveProduct.UnitPrice:C}");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("No product found with price over $1000.");
+            //}
+
+            #endregion
+
+
+            #region p3:  Retrieve the second number greater than 5
+
+            int[] Numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            int? secondGreaterThanFive = Numbers
+                .Where(n => n > 5)
+                .Skip(1)
+                .FirstOrDefault();
+
+            if (secondGreaterThanFive != 0)
             {
-                Console.WriteLine($"Product over $1000: {expensiveProduct.ProductName}, Price: {expensiveProduct.UnitPrice:C}");
+                Console.WriteLine($"Second number greater than 5 is: {secondGreaterThanFive}");
             }
             else
             {
-                Console.WriteLine("No product found with price over $1000.");
+                Console.WriteLine("No second number greater than 5 found.");
             }
 
             #endregion
+
         }
     }
 }
