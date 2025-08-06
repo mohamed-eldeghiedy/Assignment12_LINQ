@@ -47,18 +47,40 @@ namespace Assignment12_LINQ
             #region p3:. Returns digits whose name is shorter than their value.
 
 
-            string[] digits = { "zero", "one", "two", "three", "four",
-                    "five", "six", "seven", "eight", "nine" };
+            //string[] digits = { "zero", "one", "two", "three", "four",
+            //        "five", "six", "seven", "eight", "nine" };
 
 
-             var result = digits
-            .Select((name, index) => new { Name = name, Value = index })
-            .Where(d => d.Name.Length < d.Value);
+            // var result = digits
+            //.Select((name, index) => new { Name = name, Value = index })
+            //.Where(d => d.Name.Length < d.Value);
 
-             foreach (var item in result)
-             {
-                 Console.WriteLine($"{item.Name} (value = {item.Value})");
-             }
+            // foreach (var item in result)
+            // {
+            //     Console.WriteLine($"{item.Name} (value = {item.Value})");
+            // }
+
+            #endregion
+
+
+
+
+
+            // q2 : Element Operators
+
+            #region p1: Get first Product out of Stock 
+
+            List<Product> products = ListGenerators.ProductList;
+            var FristOutOfStock = products.FirstOrDefault(p => p.UnitsInStock == 0);
+            if (FristOutOfStock != null)
+            {
+                Console.WriteLine($"First out of stock product: {FristOutOfStock.ProductName}");
+            }
+            else
+            {
+                Console.WriteLine("No products are out of stock.");
+            }
+
 
             #endregion
 
