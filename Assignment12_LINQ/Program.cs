@@ -29,16 +29,36 @@ namespace Assignment12_LINQ
 
             #region p2: Find all products that are in stock and cost more than 3.00 per unit.
 
-            List<Product> products = ListGenerators.ProductList;
+            //List<Product> products = ListGenerators.ProductList;
 
-            var result = products.Where(p => p.UnitsInStock > 0 && p.UnitPrice > 3.00m);
+            //var result = products.Where(p => p.UnitsInStock > 0 && p.UnitPrice > 3.00m);
 
-            Console.WriteLine("Products in stock and cost more than $3.00:");
+            //Console.WriteLine("Products in stock and cost more than $3.00:");
 
-            foreach (var product in result)
-            {
-                Console.WriteLine($"- {product.ProductName}, Price: {product.UnitPrice:C}, Stock: {product.UnitsInStock}");
-            }
+            //foreach (var product in result)
+            //{
+            //    Console.WriteLine($"- {product.ProductName}, Price: {product.UnitPrice:C}, Stock: {product.UnitsInStock}");
+            //}
+
+            #endregion
+
+
+
+            #region p3:. Returns digits whose name is shorter than their value.
+
+
+            string[] digits = { "zero", "one", "two", "three", "four",
+                    "five", "six", "seven", "eight", "nine" };
+
+
+             var result = digits
+            .Select((name, index) => new { Name = name, Value = index })
+            .Where(d => d.Name.Length < d.Value);
+
+             foreach (var item in result)
+             {
+                 Console.WriteLine($"{item.Name} (value = {item.Value})");
+             }
 
             #endregion
 
